@@ -1,0 +1,300 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+
+<title>Schedule Finder</title>
+
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+
+.navbar {
+
+    margin-bottom: 0;
+
+    border-radius: 0;
+
+    color: #474747; /* text color */
+
+    padding: 1% 0;
+
+    font-size: 1.2em;  /* This increases text font */
+
+    border: 0; /* the black thing */
+
+}
+
+.navbar-brand {
+
+    float: left;
+
+    min-height: 55px;
+
+    padding: 0 15px 5px;
+
+}
+
+.navbar-inverse .navbar-nav .active a, .navbar-inverse .navbar-nav .active a:focus, .navbar-inverse .navbar-nav .active a:hover {
+
+    color: #FFF;
+
+    background-color: #222222; 
+
+}
+
+.navbar-inverse .navbar-nav li a { color: #D5D5D5; /* text color?? */ }
+
+.btn { /* LOGIN button */
+
+    font-size: 18px;
+
+    color: #FFF;
+
+    padding: 12px 22px;
+
+    background: #000000;
+
+    border: 2px solid #FFF;
+
+}
+
+#icon {
+
+    max-width: 200px; 
+
+    margin: 1% auto;
+
+    margin-top: 30px;
+
+    margin-bottom: 26px;
+
+}
+
+footer {
+
+    width: 100%;
+
+    background-color: #222;
+
+    padding: 5%;
+
+    color: #FFF;
+
+}
+
+.fa {
+
+    padding: 15px; 
+
+    font-size: 25px;
+
+    color: #FFF;
+
+}
+
+.fa:hover {
+
+    color: #D5D5D5;
+
+    text-decoration: none;
+
+}
+
+ 
+
+@media (max-width: 900px) {
+
+.fa {
+
+    font-size: 20px;
+
+    padding: 10px;
+
+}
+
+}
+
+ 
+
+@media (max-width: 600px) { 
+
+#icon { max-width: 150px; }
+
+h2 { /* h4 size in mobile */ font-size: 1.7em; }
+
+}
+
+body {
+
+    height: 100%;
+
+    background: url(https://www.fg-a.com/wallpapers/black-background-geometric-shapes.jpg) no-repeat center center fixed;
+
+    background-size: cover;
+
+}
+
+.center-block { float: none; }
+
+ 
+
+form {
+
+    margin: 15% auto 15% auto;
+
+    padding: 5%;
+
+    background: rgba(0,0,0,0.7);
+
+    color: #FFF;
+
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+<!--TOP NAVIGATION-->
+
+<nav class="navbar navbar-inverse">
+
+<div class="container-fluid">
+
+<div class="navbar-header">
+
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+
+<img src="Header.png" alt="logo" width="200" height="45">
+
+<!--BRAND-->
+
+<a class="navbar-brand" href="indexReference.html"><img src=""></a> </div>
+
+<div class="collapse navbar-collapse" id="myNavbar">
+
+<ul class="nav navbar-nav navbar-right">
+
+<li class="active"><a href="Home.html" class ="fa fa-home"></a></li>
+
+<li><a href="login.html">Login</a></li>
+
+<li><a href="campusMap.html">Campus Map</a></li>
+
+<li><a href="info.html">FAQ</a></li>
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+
+ 
+<!--LOGIN FORM-->
+
+<div class="container">
+
+<div class="row">
+
+<div class="col-sm-7 center-block">
+
+<form action="YOUR_LOGIN_SCRIPT.php">
+
+
+<h3 class ="text-center"> Enter Classroom </h3>
+
+
+<div class="form-group">
+
+	<label for="Class One">Class One:</label>
+
+	<input type="text" class="form-control" id="text" placeholder="Example: Langner 123">
+
+</div>
+
+<div class="form-group">
+
+	<label for="Class Two">Class Two:</label>
+
+	<input type="text" class="form-control" id="text" placeholder="Example: Langner 123" >
+
+</div>
+
+<div class="form-group">
+
+	<label for="Class Three">Class Three:</label>
+
+	<input type="text" class="form-control" id="text" placeholder="Example: Langner 123">
+
+</div>
+
+<div class="form-group">
+
+	<label for="Class Four">Class Four:</label>
+
+	<input type="text" class="form-control" id="text" placeholder="Example: Langner 123">
+
+</div>
+
+<div class="form-group">
+
+	<label for="Class Five">Class Five:</label>
+
+	<input type="text" class="form-control" id="text" placeholder="Example: Langner 123">
+
+</div>
+
+<div class="form-group">
+
+	<label for="Class Six">Class Six:</label>
+
+	<input type="text" class="form-control" id="text" placeholder="Example: Langner 123">
+
+</div>
+
+<div class="sign">
+
+	<label for="Signup">Want to Sign up?</label>
+
+<label><a href="signup.html" style="color:dodgerblue">Sign up</a></label>
+
+</div>
+
+</div>
+
+	<button onclick="myFunction()" type="submit" class="center-block btn btn-lg btn-primary">Submit</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+ 
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+ 
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
