@@ -1,0 +1,97 @@
+{
+  "name": "front-end",
+  "version": "0.1.0",
+  "dependencies": {
+    "@material-ui/core": "^3.3.2",
+    "axios": "^0.18.0",
+    "bfj": "6.1.1",
+    "connected-react-router": "^4.5.0",
+    "css-loader": "1.0.0",
+    "dotenv": "6.0.0",
+    "dotenv-expand": "4.2.0",
+    "file-loader": "2.0.0",
+    "fs-extra": "7.0.0",
+    "google-map-react": "^1.1.0",
+    "history": "^4.7.2",
+    "lodash": "^4.17.11",
+    "mini-css-extract-plugin": "0.4.3",
+    "prop-types": "^15.6.2",
+    "react": "^16.5.2",
+    "react-dev-utils": "^6.0.4",
+    "react-dom": "^16.5.2",
+    "react-google-maps": "^9.4.5",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.0",
+    "style-loader": "0.23.0",
+    "url-loader": "1.1.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "7.1.0",
+    "@svgr/webpack": "2.4.1",
+    "ajv": "^6.5.4",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "^9.0.0",
+    "babel-loader": "8.0.4",
+    "babel-plugin-named-asset-import": "^0.2.2",
+    "babel-preset-react-app": "^5.0.3",
+    "case-sensitive-paths-webpack-plugin": "^2.1.2",
+    "chalk": "2.4.1",
+    "depcheck": "^0.6.11",
+    "eslint": "^5.4.0",
+    "eslint-config-react-app": "^3.0.4",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-babel": "^5.1.0",
+    "eslint-plugin-flowtype": "^2.50.3",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.0",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "find-dead-modules": "^1.0.0-alpha.4",
+    "html-webpack-plugin": "4.0.0-alpha.2",
+    "mocha": "^5.2.0",
+    "optimize-css-assets-webpack-plugin": "5.0.1",
+    "pkg": "^4.3.4",
+    "pnp-webpack-plugin": "1.1.0",
+    "postcss-flexbugs-fixes": "4.1.0",
+    "postcss-loader": "3.0.0",
+    "postcss-preset-env": "6.0.6",
+    "postcss-safe-parser": "4.0.1",
+    "redux-devtools-extension": "^2.13.5",
+    "sass-loader": "^7.1.0",
+    "terser-webpack-plugin": "1.1.0",
+    "webpack": "4.19.1",
+    "webpack-dev-server": "3.1.9",
+    "webpack-manifest-plugin": "2.0.4",
+    "workbox-webpack-plugin": "3.6.2"
+  },
+  "scripts": {
+    "start": "node scripts/start.js",
+    "build": "node scripts/build.js",
+    "test": "node scripts/test.js",
+    "lint": "eslint --ext .js --ext .jsx --ignore-path ../../.eslintignore .",
+    "lint-fix": "eslint --fix --ext .js --ext .jsx --ignore-path ../../.eslintignore ."
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  },
+  "engines": {
+    "node": "^8",
+    "npm": "^6"
+  }
+}
