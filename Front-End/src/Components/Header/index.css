@@ -1,0 +1,61 @@
+.navbar {
+
+    margin-bottom: 0;
+
+    border-radius: 0;
+
+    color: #474747; /* text color */
+
+    padding: 1% 0;
+
+    font-size: 1.2em;  /* This increases text font */
+
+    border: 0; /* the black thing */
+
+}
+
+.navbar-brand {
+
+    float: left;
+
+    min-height: 55px;
+
+    padding: 0 15px 5px;
+
+}
+
+.navbar-inverse .navbar-nav .active a, .navbar-inverse .navbar-nav .active a:focus, .navbar-inverse .navbar-nav .active a:hover {
+
+    color: #FFF;
+
+    background-color: #222222; 
+
+}
+
+.navbar-inverse .navbar-nav li a { color: #D5D5D5; /* text color?? */ }
+
+.btn { /* LOGIN button */
+
+    font-size: 18px;
+
+    color: #FFF;
+
+    padding: 12px 22px;
+
+    background: #000000;
+
+    border: 2px solid #FFF;
+
+}
+
+#icon {
+
+    max-width: 200px; 
+
+    margin: 1% auto;
+
+    margin-top: 30px;
+
+    margin-bottom: 26px;
+
+}
