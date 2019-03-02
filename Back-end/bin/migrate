@@ -1,0 +1,134 @@
+#!/usr/bin/env python
+
+import mysql.connector as mysql
+from mysql.connector import errorcode
+import sys
+import uuid
+
+DB_NAME = 'seniorproject'
+
+CLASS_COORDS = {
+	"Beck": [29.571468, -97.981982],
+	"Langner": [29.572413, -97.981526],
+	"Tscheope": [29.572169, -97.982506],
+	"Schuench": [29.573329, -97.981787],
+	"Seguin": [29.570712, -97.984792],
+	"Centennial": [29.572040, -97.986251],
+	"Krost": [29.571169, -97.983469],
+	"Moody": [29.571215, -97.983174],
+	"Weston": [29.572140, -97.987022]
+}
+
+DORM_COORDS = {
+	"Baldus": [29.572087, -97.983529],
+	"Brandes": [29.570472, -97.986387],
+	"Centennial": [29.572040, -97.986251],
+	"Clifton": [29.571521, -97.983593],
+	"Hahn": [29.572016, -97.983795],
+	"Kramer": [29.570728, -97.986100],
+	"Lange": [29.570195, -97.986106],
+	"Linne": [29.573459, -97.986200],
+	"Renger": [29.574119, -97.986193],
+	"Seguin": [29.570712, -97.984792],
+	"Steger": [29.571038, -97.986240],
+	"Strunk": [29.573789, -97.986390],
+	"Trinity": [29.571787, -97.983638]
+}
+
+TABLES = {}
+
+TABLES['users'] = ("CREATE TABLE `users` ("
+	"`id` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,"
+	"`publicId` VARCHAR(36) NOT NULL,"
+	"`email` VARCHAR(30) NOT NULL,"
+	"`creation` VARCHAR(24) NOT NULL,"
+	"`name` VARCHAR(30),"
+	"`username` VARCHAR(30),"
+	"`password` VARCHAR(50),"
+	"`scheduleId` VARCHAR(36)"
+	");")
+
+TABLES['schedules'] = ("CREATE TABLE `schedules` ("
+	"`id` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,"
+	"`publicId` VARCHAR(36) NOT NULL,"
+	"`userPublicId` VARCHAR(36) NOT NULL,"
+	"`dorm` VARCHAR(30),"
+	"`class1` VARCHAR(30),"
+	"`class2` VARCHAR(30),"
+	"`class3` VARCHAR(30),"
+	"`class4` VARCHAR(30),"
+	"`class5` VARCHAR(30),"
+	"`class6` VARCHAR(30)"
+	");")
+
+TABLES['buildings'] = ("CREATE TABLE `buildings` ("
+	"`id` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,"
+	"`publicId` VARCHAR(36) NOT NULL,"
+	"`type` VARCHAR(30) NOT NULL,"
+	"`name` VARCHAR(30),"
+	"`latitude` DOUBLE NOT NULL,"
+	"`longitude` DOUBLE NOT NULL"
+	");")
+
+def createDatabase (cursor):
+	try:
+		cursor.execute("CREATE DATABASE {}".format(DB_NAME))
+	except mysql.Error as err:
+		print("Error creating Database: {}".format(DB_NAME))
+		exit(1)
+
+def createTables (cursor):
+	for key in TABLES:
+		try:
+			cursor.execute("DROP TABLE {}".format(key))
+		except mysql.Error as err:
+			print("Table: {} does not already exist, creating".format(key))
+
+		cursor.execute(TABLES[key])
+		print("Table: {} successfully created".format(key))
+
+def writeBuildings (cursor):
+	for building in CLASS_COORDS:
+		publicId = uuid.uuid4()
+		query = ("INSERT INTO `buildings` ("
+			"`publicId`, `type`, `name`, `latitude`, `longitude`"
+			") VALUES (\"{}\", \"{}\", \"{}\", {}, {});").format(
+				str(publicId), "class", building, CLASS_COORDS[building][0], CLASS_COORDS[building][1]
+			)
+		cursor.execute(query)
+
+	for dorm in DORM_COORDS:
+		publicId = uuid.uuid4()
+		query = ("INSERT INTO `buildings` ("
+			"`publicId`, `type`, `name`, `latitude`, `longitude`"
+			") VALUES (\"{}\", \"{}\", \"{}\", {}, {});").format(
+				str(publicId), "dorm", dorm, DORM_COORDS[dorm][0], DORM_COORDS[dorm][1]
+			)
+		cursor.execute(query)
+
+def main ():
+	cnx = mysql.connect(user='root', port='32769')
+	cursor = cnx.cursor()
+
+	try:
+		cursor.execute("Use {}".format(DB_NAME))
+		print("Using database {}".format(DB_NAME))
+	except mysql.Error as err:
+		print("Database with name {} does not exist, creating it".format(DB_NAME))
+		if err.errno == errorcode.ER_BAD_DB_ERROR:
+			createDatabase(cursor)
+			cnx.database = DB_NAME
+			print("Database successfully created")
+		else:
+			print("Error Finding Database")
+			print(err)
+			exit(1)
+
+	print("Creating Tables")
+	createTables(cursor)
+	print("Writing In Building Rows")
+	writeBuildings(cursor)
+	print("Successfully completed")
+	cnx.commit()
+
+main()
